@@ -1,11 +1,12 @@
 import express from 'express'
 import 'dotenv/config'
 import './db.js'
-
+import usersRoutes from './UsersRoutes.js'
 const app = express()
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 3001
 
 app.use(express.json())
+app.use('/api/users/', usersRoutes)
 
 app.get('/', (req, res) => {
     res.send("Hello World")
